@@ -1,23 +1,52 @@
-# LR_Experiment  
-## 项目说明
-通过LR方法训练人工神经网络提高模型噪声及对抗鲁棒性
+# Stochastic Gradient Estimation for Artificial Neural Networks 
+## Introduction
+We investigate a new approach to compute the gradients of artificial neural networks (ANNs), based on
+the so-called push-out likelihood ratio method. Unlike the widely used backpropagation (BP) method that
+requires continuity of the loss function and the activation function, our approach bypasses this requirement
+by injecting artificial noises into the signals passed along the neurons. We show how this approach has
+a similar computational complexity as BP, and moreover is more advantageous in terms of removing the
+backward recursion and eliciting transparent formulas. We also formalize the connection between BP, a
+pivotal technique for training ANNs, and infinitesimal perturbation analysis, a classic path-wise derivative
+estimation approach, so that both our new proposed methods and BP can be better understood in the context
+of stochastic gradient estimation. Our approach allows efficient training for ANNs with more flexibility on
+the loss and activation functions, and shows empirical improvements on the robustness of ANNs under
+adversarial attacks and corruptions of natural noises.
 
-## 项目文件说明:
----MNIST&Fashion 对MNISt及Fashion MNIST的测试  
-   ---train 训练代码，包括BP，BP+，LRS，LRT，LRS with 0-1 loss， LRT with 0-1 loss  
-   ---adv 噪声及对抗样本鲁棒性测试  
----tinyImageNet 对tinyImageNet的测试  
-   ---train 训练代码，包括BP-1, BP-2, LRS, LRT, LRS with 0-1 loss, LRT with 0-1 loss, LR with relu  
-   ---adv 噪声及对抗样本鲁棒性测试  
----var 统计方差  
+## Citation
 
-## 运行环境及使用说明
+If you find generalized likelihood ratio method useful in your research, please consider citing:
+
+    @article{peng2019stochastic,
+        Author = {Yijie Peng, Li Xiao, Bernd Heidergott,Jeff L. Hong, Henry Lam},
+        Title = {Stochastic Gradient Estimation for Artificial Neural Networks},
+        Journal = {Preprint with DOI: 10.2139/ssrn.3318847},
+        Year = {2019}
+    }
+    
+      @article{Li2019brain-like,
+        Author = {Li Xiao, Yijie Peng,Jeff L. Hong, Zewu Ke},
+        Title = {Training Artificial Neural Networks by Generalized Likelihood Ratio Method: Exploring Brain-like Learning to Improve Robustness},
+        Journal = {IEEE International Conference on Automation Science and Engineering (CASE)},
+        Year = {2020}
+    } 
+
+## Documents :
+---MNIST&Fashion Experiments on MNISt and Fashion MNIST  
+   ---train Training code，including BP，BP+，LRS，LRT，LRS with 0-1 loss， LRT with 0-1 loss  
+   ---adv Testing on corruption and adversarial attacks  
+---tinyImageNet Experiments on tinyImageNet 
+   ---train Training code，including BP-1, BP-2, LRS, LRT, LRS with 0-1 loss, LRT with 0-1 loss, LR with relu  
+   ---adv Testing on corruption and adversarial attacks   
+---var statistical variance
+
+## Operation environment 
 python==3.7.4  pytorch==1.6.0  
-各文件基本独立存在，执行测试功能，直接运行即可
+Each file basically exists independently. Users can execute  run each file directly
 
-## 基本实验结果  
+
+## Experimental Results  
 ### MNIST  
-#### 对抗鲁棒性
+#### Robustness on adversarial attacks
 |Activations + Entropy | Orig | AdvLBFGS | AdvFGSM|  
 |  ----  | ----  |  ----  | ----  |  
 |BP becnmark| 96.34\%| 57.29\%| 28.37\%|  
@@ -31,7 +60,7 @@ python==3.7.4  pytorch==1.6.0
 
 
 
-### 噪声鲁棒性
+### Robustness on corruption attacks
 |Activations + Entropy | Orig | Gaussian | Impulse | Glass Blur | contrast|  
 |  ----  | ----  |  ----  | ----  |  ----  | ----  |  
 |BP becnmark|96.34\%|96.35\%|91.95\%|86.16\%|67.25\%|  
