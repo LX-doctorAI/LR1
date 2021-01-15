@@ -16,15 +16,15 @@ adversarial attacks and corruptions of natural noises.
 
 If you find generalized likelihood ratio method useful in your research, please consider citing:
 
-    @article{peng2019stochastic,
+    @article{peng2020stochastic,
         Author = {Yijie Peng, Li Xiao, Bernd Heidergott,Jeff L. Hong, Henry Lam},
         Title = {Stochastic Gradient Estimation for Artificial Neural Networks},
         Journal = {Preprint with DOI: 10.2139/ssrn.3318847},
         Year = {2019}
     }
     
-      @article{Li2019brain-like,
-        Author = {Li Xiao, Yijie Peng,Jeff L. Hong, Zewu Ke},
+      @article{Li2020brain-like,
+        Author = {Li Xiao, Yijie Peng,Jeff L. Hong, Zewu Ke, Shuhuai Yang},
         Title = {Training Artificial Neural Networks by Generalized Likelihood Ratio Method: Exploring Brain-like Learning to Improve Robustness},
         Journal = {IEEE International Conference on Automation Science and Engineering (CASE)},
         Year = {2020}
